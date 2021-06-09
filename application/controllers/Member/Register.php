@@ -34,9 +34,9 @@ class Register extends CI_Controller {
 			$FotoDiri 		= $_FILES["fileFotoDiriPemilik"]["name"];
 			$SuratKuasa		= "";
 		}else if($Status == "Penyewa"){
-			$Ktp 				= $_FILES["KtpWakil"]["name"];
-			$FotoDiri 			= $_FILES["FotoDiriWakil"]["name"];
-			$SuratKuasa 		= $_FILES["SuratKuasa"]["name"];
+			$Ktp 				= $_FILES["fileKtpWakil"]["name"];
+			$FotoDiri 			= $_FILES["fileFotoDiriWakil"]["name"];
+			$SuratKuasa 		= $_FILES["fileSuratKuasa"]["name"];
 		}else{
 			$Ktp 				= "";
 			$FotoDiri 			= "";
@@ -87,28 +87,28 @@ class Register extends CI_Controller {
 				"foto_diri" => $FotoDiri,
 				"foto_kuasa" => $SuratKuasa,
 				"domisili" => $Domisili,
+				"alamat_ktp" => $Alamat,
 				"status_peserta" => $Status,
 				"tower_id" => $Tower,
 				"lantai_id" => $Lantai,
 				"unit_id" => $Nomor
 			);
-
-			$arrData2 = $this->_accessGenerator($arrData);
-			$arrData["foto_ktp"] = $arrData2["username"]."/".str_replace(" ","_",$Ktp);
-			$arrData["foto_diri"] = $arrData2["username"]."/".str_replace(" ","_",$FotoDiri);
+			$timestamp = microtime();
+			$arrData["foto_ktp"] = md5($arrData["nama_lengkap"].$timestamp)."/".str_replace(" ","_",$Ktp);
+			$arrData["foto_diri"] = md5($arrData["nama_lengkap"].$timestamp)."/".str_replace(" ","_",$FotoDiri);
 			if(!empty($SuratKuasa)){
-				$arrData["foto_kuasa"] = $arrData2["username"]."/".str_replace(" ","_",$SuratKuasa);
+				$arrData["foto_kuasa"] = md5($arrData["nama_lengkap"].$timestamp)."/".str_replace(" ","_",$SuratKuasa);
 			}
 
-			$arrResponse = $this->Register_Model->insertRegisterMember($arrData, $arrData2);
+			$arrResponse = $this->Register_Model->insertRegisterMember($arrData);
 
 			if($Status == "Pemilik"){
-				$this->_uploadFile(array("field" => "fileKtpPemilik", "username" => $arrData2["username"]));
-				$this->_uploadFile(array("field" => "fileFotoDiriPemilik", "username" => $arrData2["username"]));
+				$this->_uploadFile(array("field" => "fileKtpPemilik", "dir" => md5($arrData["nama_lengkap"].$timestamp)));
+				$this->_uploadFile(array("field" => "fileFotoDiriPemilik", "dir" => md5($arrData["nama_lengkap"].$timestamp)));
 			}else if($Status == "Penyewa"){
-				$this->_uploadFile(array("field" => "fileKtpWakil", "username" => $arrData2["username"]));
-				$this->_uploadFile(array("field" => "fileFotoDiriWakil", "username" => $arrData2["username"]));
-				$this->_uploadFile(array("field" => "fileSuratKuasa", "username" => $arrData2["username"]));
+				$this->_uploadFile(array("field" => "fileKtpWakil", "dir" => md5($arrData["nama_lengkap"].$timestamp)));
+				$this->_uploadFile(array("field" => "fileFotoDiriWakil", "dir" => md5($arrData["nama_lengkap"].$timestamp)));
+				$this->_uploadFile(array("field" => "fileSuratKuasa", "dir" => md5($arrData["nama_lengkap"].$timestamp)));
 			}else{
 			}
 
@@ -120,7 +120,7 @@ class Register extends CI_Controller {
 		}else{
 			$arrResponse = array("code" 	=> 403,
 								 "status" 	=> "Forbidden",
-								 "message" 	=> "Gagal",
+								 "message" 	=> "Semua Kolom Tidak Boleh Kosong",
 								 "data"		=> $this->form_validation->error_array());
 
 			$this->output->set_status_header(403);
@@ -131,28 +131,8 @@ class Register extends CI_Controller {
 		}
 	}
 
-	private function _accessGenerator($param){
-		$arrUserName = explode(" ", $param["nama_lengkap"]);
-		$TOWER = $this->Register_Model->selectDataTower($param["tower_id"]);
-		$LANTAI = $this->Register_Model->selectDataLantai($param["lantai_id"]);
-		$UNIT = $this->Register_Model->selectDataUnit($param["unit_id"]);
-
-		if(strlen($TOWER[0]["nama_tower"]) >= 2){
-			$tower = $TOWER[0]["nama_tower"];
-		}else{
-			$tower = "0".$TOWER[0]["nama_tower"];
-		}
-		$username = $tower.$LANTAI[0]["no_lantai"].$UNIT[0]["nama_unit"]."-".$arrUserName[0];
-		$generatePassword = substr(md5(uniqid(rand(), true)), 0, 6);
-
-		return array(
-			"username" => $username,
-			"password" => $generatePassword
-		);
-	}
-
 	private function _uploadFile($param){
-		$structure = './support/assets/upload/users/'.$param["username"]."/";
+		$structure = './support/assets/upload/users/'.$param["dir"]."/";
 
 		if(!is_dir($structure)){
 			if (!mkdir($structure, 0777, true)) {

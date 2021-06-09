@@ -25,52 +25,48 @@
         <div id="wrapper">
             <!-- Top Bar Start -->
             <div class="topbar">
+				<!-- LOGO -->
+				<div class="topbar-left">
+    				<a href="index.html" class="logo">
+        				<span class="logo-light">
+            				<i class="mdi mdi-camera-control"></i> Stexo
+        				</span>
+        				<span class="logo-sm">
+            				<i class="mdi mdi-camera-control"></i>
+        				</span>
+    				</a>
+				</div>
 
-<!-- LOGO -->
-<div class="topbar-left">
-    <a href="index.html" class="logo">
-        <span class="logo-light">
-            <i class="mdi mdi-camera-control"></i> Stexo
-        </span>
-        <span class="logo-sm">
-            <i class="mdi mdi-camera-control"></i>
-        </span>
-    </a>
-</div>
+				<nav class="navbar-custom">
+					<ul class="navbar-right list-inline float-right mb-0">
+						<!-- full screen -->
+						<li class="dropdown notification-list list-inline-item d-none d-md-inline-block">
+							<a class="nav-link waves-effect" href="#" id="btn-fullscreen">
+								<i class="mdi mdi-arrow-expand-all noti-icon"></i>
+							</a>
+						</li>
 
-<nav class="navbar-custom">
-    <ul class="navbar-right list-inline float-right mb-0">
-        <!-- full screen -->
-        <li class="dropdown notification-list list-inline-item d-none d-md-inline-block">
-            <a class="nav-link waves-effect" href="#" id="btn-fullscreen">
-                <i class="mdi mdi-arrow-expand-all noti-icon"></i>
-            </a>
-        </li>
-
-        <li class="dropdown notification-list list-inline-item">
-            <div class="dropdown notification-list nav-pro-img">
-                <a class="dropdown-toggle nav-link arrow-none nav-user" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                    <img src="<?= base_url("support/template/assets/images/users/user-4.jpg"); ?>" alt="user" class="rounded-circle">
-                </a>
-                <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
-                   
-                    <a class="dropdown-item text-danger" href="<?= base_url("/"); ?>"><i class="mdi mdi-power text-danger"></i> Logout</a>
-                </div>
-            </div>
-        </li>
-    </ul>
-    <ul class="list-inline menu-left mb-0">
-        <li class="float-left">
-            <button class="button-menu-mobile open-left waves-effect">
-                <i class="mdi mdi-menu"></i>
-            </button>
-        </li>
-        
-    </ul>
-
-</nav>
-
-</div>
+						<li class="dropdown notification-list list-inline-item">
+							<div class="dropdown notification-list nav-pro-img">
+								<a class="dropdown-toggle nav-link arrow-none nav-user" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+									<img src="<?= base_url("support/template/assets/images/users/user-4.jpg"); ?>" alt="user" class="rounded-circle">
+								</a>
+								<div class="dropdown-menu dropdown-menu-right profile-dropdown ">
+								
+									<a class="dropdown-item text-danger" href="<?= base_url("Member/Dashboard_member/doLogout"); ?>"><i class="mdi mdi-power text-danger"></i> Logout</a>
+								</div>
+							</div>
+						</li>
+					</ul>
+					<ul class="list-inline menu-left mb-0">
+						<li class="float-left">
+							<button class="button-menu-mobile open-left waves-effect">
+								<i class="mdi mdi-menu"></i>
+							</button>
+						</li>
+					</ul>
+				</nav>
+			</div>
             <!-- Top Bar End -->
 
             <!-- ========== Left Sidebar Start ========== -->
@@ -129,13 +125,7 @@
                                     <div class="card-body">
         
                                         <h4 class="mt-0 header-title">Selamat Datang </h4>
-        
-                                     
-                            
-
-
-
-                                       
+                                   
                             <div class="col-xl">
                              
                                     <div class="card-body">
@@ -187,110 +177,103 @@
         <!-- END wrapper -->
 
         <div id="agendarapat" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                                    <div class="modal-dialog">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h5 class="modal-title mt-0" id="myModalLabel">Agenda Rapat</h5>
-                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                    <span aria-hidden="true">&times;</span>
-                                                                </button>
-                                                            </div>
-                                                            <div class="modal-body">
-                                                                <h5 class="font-16">Overflowing text to show scroll behavior</h5>
-                                                                <p>Cras mattis consectetur purus sit amet fermentum.
-                                                                    Cras justo odio, dapibus ac facilisis in,
-                                                                    egestas eget quam. Morbi leo risus, porta ac
-                                                                    consectetur ac, vestibulum at eros.</p>
-                                                               
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">Close</button>
-                                                               
-                                                            </div>
-                                                        </div><!-- /.modal-content -->
-                                                    </div><!-- /.modal-dialog -->
-                                                </div><!-- /.modal -->
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title mt-0" id="myModalLabel">Agenda Rapat</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<h5 class="font-16">Overflowing text to show scroll behavior</h5>
+						<p>Cras mattis consectetur purus sit amet fermentum.
+							Cras justo odio, dapibus ac facilisis in,
+							egestas eget quam. Morbi leo risus, porta ac
+							consectetur ac, vestibulum at eros.</p>
+						
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">Close</button>
+						
+					</div>
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
 
-                                                <div id="tatatertibruat" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                                    <div class="modal-dialog">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h5 class="modal-title mt-0" id="myModalLabel">Tata Tertib Ruat</h5>
-                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                    <span aria-hidden="true">&times;</span>
-                                                                </button>
-                                                            </div>
-                                                            <div class="modal-body">
-                                                                <h5 class="font-16">Overflowing text to show scroll behavior</h5>
-                                                                <p>Cras mattis consectetur purus sit amet fermentum.
-                                                                    Cras justo odio, dapibus ac facilisis in,
-                                                                    egestas eget quam. Morbi leo risus, porta ac
-                                                                    consectetur ac, vestibulum at eros.</p>
-                                                               
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">Close</button>
-                                                               
-                                                            </div>
-                                                        </div><!-- /.modal-content -->
-                                                    </div><!-- /.modal-dialog -->
-                                                </div><!-- /.modal -->
+		<div id="tatatertibruat" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title mt-0" id="myModalLabel">Tata Tertib Ruat</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<h5 class="font-16">Overflowing text to show scroll behavior</h5>
+						<p>Cras mattis consectetur purus sit amet fermentum.
+							Cras justo odio, dapibus ac facilisis in,
+							egestas eget quam. Morbi leo risus, porta ac
+							consectetur ac, vestibulum at eros.</p>
+						
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">Close</button>
+						
+					</div>
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
 
-                                                <div id="contoh3" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                                    <div class="modal-dialog">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h5 class="modal-title mt-0" id="myModalLabel">Contoh 3</h5>
-                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                    <span aria-hidden="true">&times;</span>
-                                                                </button>
-                                                            </div>
-                                                            <div class="modal-body">
-                                                                <h5 class="font-16">Overflowing text to show scroll behavior</h5>
-                                                                <p>Cras mattis consectetur purus sit amet fermentum.
-                                                                    Cras justo odio, dapibus ac facilisis in,
-                                                                    egestas eget quam. Morbi leo risus, porta ac
-                                                                    consectetur ac, vestibulum at eros.</p>
-                                                               
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">Close</button>
-                                                               
-                                                            </div>
-                                                        </div><!-- /.modal-content -->
-                                                    </div><!-- /.modal-dialog -->
-                                                </div><!-- /.modal -->
+		<div id="contoh3" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title mt-0" id="myModalLabel">Contoh 3</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<h5 class="font-16">Overflowing text to show scroll behavior</h5>
+						<p>Cras mattis consectetur purus sit amet fermentum.
+							Cras justo odio, dapibus ac facilisis in,
+							egestas eget quam. Morbi leo risus, porta ac
+							consectetur ac, vestibulum at eros.</p>
+						
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">Close</button>
+						
+					</div>
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
 
-                                                <div id="contoh4" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                                    <div class="modal-dialog">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h5 class="modal-title mt-0" id="myModalLabel">Contoh 4</h5>
-                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                    <span aria-hidden="true">&times;</span>
-                                                                </button>
-                                                            </div>
-                                                            <div class="modal-body">
-                                                                <h5 class="font-16">Overflowing text to show scroll behavior</h5>
-                                                                <p>Cras mattis consectetur purus sit amet fermentum.
-                                                                    Cras justo odio, dapibus ac facilisis in,
-                                                                    egestas eget quam. Morbi leo risus, porta ac
-                                                                    consectetur ac, vestibulum at eros.</p>
-                                                               
-                                                            </div>
-                                                            
-                                                            <div class="modal-footer">
-                                                                <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">Close</button>
-                                                               
-                                                            </div>
-                                                        </div><!-- /.modal-content -->
-                                                    </div><!-- /.modal-dialog -->
-                                                </div><!-- /.modal -->
-                                            
-
-
-
-
+		<div id="contoh4" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title mt-0" id="myModalLabel">Contoh 4</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<h5 class="font-16">Overflowing text to show scroll behavior</h5>
+						<p>Cras mattis consectetur purus sit amet fermentum.
+							Cras justo odio, dapibus ac facilisis in,
+							egestas eget quam. Morbi leo risus, porta ac
+							consectetur ac, vestibulum at eros.</p>
+					</div>
+					
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">Close</button>
+					</div>
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
 
         <!-- jQuery  -->
         <script src="<?= base_url("support/template/assets/js/jquery.min.js"); ?>"></script>
@@ -320,5 +303,11 @@
 
         <!-- App js -->
         <script src="<?= base_url("support/template/assets/js/app.js"); ?>"></script>
+
+		<script>
+			$(function(){
+				$("#tatatertibruat").modal("show");
+			});
+		</script>
 	</body>
 </html>

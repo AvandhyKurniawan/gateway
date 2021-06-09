@@ -8,10 +8,14 @@ class Login_Model extends CI_Model{
 	public function selectDataLogin($param){
 		$this->db->select("*");
 		$this->db->where("username", $param["username"]);
-		$this->db->where("password", $param["password"]);
 		$query = $this->db->get("users");
 		if($query->num_rows() > 0){
-			return $query->result_array();
+			$arrResult = $query->result_array();
+			if($this->encryption->decrypt($arrResult[0]["password"]) == $param["password"]){
+				return $arrResult;
+			}else{
+				return array();
+			}
 		}else{
 			return array();
 		}

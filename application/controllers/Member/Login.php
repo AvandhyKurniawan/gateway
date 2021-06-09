@@ -34,12 +34,15 @@ class Login extends CI_Controller {
 			$arrResult = $this->Login_Model->selectDataLogin($arrData);
 			if(!empty($arrResult)){
 				$arrSession = array(
-					"id" => $this->encrypt->encode($arrResult[0]["id"]),
-					"username" => $this->encrypt->encode($arrResult[0]["username"]),
-					"password" => $this->encrypt->encode($arrResult[0]["password"]),
+					"id" => $this->encryption->encrypt($arrResult[0]["user_id"]),
+					"username" => $this->encryption->encrypt($arrResult[0]["username"]),
+					"password" => $this->encryption->encrypt($arrResult[0]["password"]),
 				);
 				$this->session->set_userdata($arrSession);
-				redirect("Member/Dashboad_member","refresh");
+				redirect(base_url("Member/Dashboard_member"),"refresh");
+			}else{
+				$this->session->set_flashdata("error_login", "Username dan Password Tidak Cocok");
+				redirect(base_url("Member/Login"),"refresh");
 			}
 		}
 	}
