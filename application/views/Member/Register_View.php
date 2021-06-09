@@ -72,6 +72,7 @@
 												<option value="">STATUS</option>
 												<option value="Pemilik">PEMILIK</option>
 												<option value="Penyewa">PENYEWA</option>
+												<option value="Pemegang Kuasa">PEMEGANG KUASA</option>
 											</select>
 										</div>
 									</div>
@@ -137,7 +138,7 @@
 
 			function changeStatus(){
 				var status = $("#cmbStatus").val();
-				if(status == "Pemilik"){
+				if(status == "Pemilik" || status == "Penyewa"){
 					$("#lampiranDokumen").html(
 						'<div class="row">'+
 							'<div class="col-12">'+
@@ -152,7 +153,7 @@
 							'</div>'+
 						'</div>'
 					);
-				}else if(status == "Penyewa"){
+				}else if(status == "Pemegang Kuasa"){
 					$("#lampiranDokumen").html(
 						'<div class="row">'+
 							'<div class="col-12">'+
@@ -200,7 +201,7 @@
 					FORM_DATA.append("NoHp",NoHp);
 					FORM_DATA.append("Email",Email);
 					
-					if(Status == "Pemilik"){
+					if(Status == "Pemilik" || Status == "Penyewa"){
 						var KtpPemilik 				= $("#fileKtpPemilik").val();
 						var FotoDiriPemilik 		= $("#fileFotoDiriPemilik").val();
 						var fileKtpPemilik			= $("#fileKtpPemilik")[0].files;
@@ -210,7 +211,7 @@
 						FORM_DATA.append("FotoDiriPemilik",FotoDiriPemilik);
 						FORM_DATA.append("fileKtpPemilik",fileKtpPemilik[0]);
 						FORM_DATA.append("fileFotoDiriPemilik",fileFotoDiriPemilik[0]);
-					}else if(Status == "Penyewa"){
+					}else if(Status == "Pemegang Kuasa"){
 						var KtpWakil 				= $("#fileKtpWakil").val();
 						var FotoDiriWakil 			= $("#fileFotoDiriWakil").val();
 						var SuratKuasa 				= $("#fileSuratKuasa").val();
