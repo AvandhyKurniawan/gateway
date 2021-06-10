@@ -39,7 +39,7 @@
 											<label>UNIT</label>
 											<div class="row">
 												<div class="col-4">
-													<select name="cmbTower" id="cmbTower" class="form-control" required>
+													<select name="cmbTower" id="cmbTower" class="form-control" onchange="getLantai(this);" required>
 														<option value="">TOWER</option>
 														<?php foreach($TOWER as $arrDataTower): ?>
 															<option value="<?= $arrDataTower["tower_id"]; ?>"><?= $arrDataTower["nama_tower"]; ?></option>
@@ -47,19 +47,13 @@
 													</select>
 												</div>
 												<div class="col-4">
-													<select name="cmbLantai" id="cmbLantai" class="form-control" required>
+													<select name="cmbLantai" id="cmbLantai" class="form-control"onchange="getUnit(this)" required>
 														<option value="">LANTAI</option>
-														<?php foreach($LANTAI as $arrDataLantai): ?>
-															<option value="<?= $arrDataLantai["lantai_id"]; ?>"><?= $arrDataLantai["no_lantai"]; ?></option>
-														<?php endforeach; ?>
 													</select>
 												</div>
 												<div class="col-4">
 													<select name="cmbNomor" id="cmbNomor" class="form-control" required>
 														<option value="">NOMOR</option>
-														<?php foreach($UNIT as $arrDataUnit): ?>
-															<option value="<?= $arrDataUnit["unit_id"]; ?>"><?= $arrDataUnit["nama_unit"]; ?></option>
-														<?php endforeach; ?>
 													</select>
 												</div>
 											</div>
@@ -112,7 +106,6 @@
 									<button class="btn btn-primary btn-block btn-lg waves-effect waves-light" id="btnDaftar" onclick="saveData();">Daftar</button>
 								</div>
 							</div>
-
 						</div>
 					</div>
 				</div>
@@ -278,6 +271,42 @@
 				}else{
 					$("#submit").click();
 				}
+			}
+
+			function getLantai(param){
+				var TOWER = param.value;
+				$.ajax({
+					type : "GET",
+					url : "<?= base_url("Member/Register/getLantai"); ?>",
+					dataType : "JSON",
+					data : {
+						TOWER : TOWER
+					},
+					success : function(response){
+						$("#cmbLantai").html("<option value=''>LANTAI</option>");
+						$.map(response, function(value){
+							$("#cmbLantai").append("<option value='"+value.lantai_id+"'>"+value.no_lantai+"</option>");
+						});
+					}
+				});
+			}
+
+			function getUnit(param){
+				var LANTAI = param.value;
+				$.ajax({
+					type : "GET",
+					url : "<?= base_url("Member/Register/getUnit"); ?>",
+					dataType : "JSON",
+					data : {
+						LANTAI : LANTAI
+					},
+					success : function(response){
+						$("#cmbNomor").html("<option value=''>UNIT</option>");
+						$.map(response, function(value){
+							$("#cmbNomor").append("<option value='"+value.unit_id+"'>"+value.nama_unit+"</option>");
+						});
+					}
+				});
 			}
 		</script>
 	</body>

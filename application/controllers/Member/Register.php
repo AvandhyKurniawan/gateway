@@ -11,9 +11,7 @@ class Register extends CI_Controller {
 	public function index()
 	{
 		$arrData = array(
-			"TOWER" => $this->Register_Model->selectDataTower(),
-			"LANTAI" => $this->Register_Model->selectDataLantai(),
-			"UNIT" => $this->Register_Model->selectDataUnit(),
+			"TOWER" => $this->Register_Model->selectDataTower()
 		);
 		$this->load->view('Member/Register_View', $arrData);
 	}
@@ -89,8 +87,6 @@ class Register extends CI_Controller {
 				"domisili" => $Domisili,
 				"alamat_ktp" => $Alamat,
 				"status_peserta" => $Status,
-				"tower_id" => $Tower,
-				"lantai_id" => $Lantai,
 				"unit_id" => $Nomor
 			);
 			$timestamp = microtime();
@@ -129,6 +125,26 @@ class Register extends CI_Controller {
 			$this->output->_display();
 			exit;
 		}
+	}
+
+	public function getLantai(){
+		$tower_id = $this->input->get("TOWER");
+		$arrResponse = $this->Register_Model->selectDataLantaiByTowerId($tower_id);
+		$this->output->set_status_header(200);
+		$this->output->set_content_type('application/json', 'utf-8');
+		$this->output->set_output(json_encode($arrResponse));
+		$this->output->_display();
+		exit;
+	}
+
+	public function getUnit(){
+		$lantai_id = $this->input->get("LANTAI");
+		$arrResponse = $this->Register_Model->selectDataUnitByLantaiId($lantai_id);
+		$this->output->set_status_header(200);
+		$this->output->set_content_type('application/json', 'utf-8');
+		$this->output->set_output(json_encode($arrResponse));
+		$this->output->_display();
+		exit;
 	}
 
 	private function _uploadFile($param){

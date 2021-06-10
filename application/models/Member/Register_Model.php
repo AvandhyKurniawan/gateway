@@ -42,6 +42,16 @@ class Register_Model extends CI_Model{
 		}
 		return $this->db->get("unit")->result_array();
 	}
+
+	public function selectDataLantaiByTowerId($param){
+		$this->db->where("tower_id", $param);
+		return $this->db->get("lantai")->result_array();
+	}
+
+	public function selectDataUnitByLantaiId($param){
+		$this->db->where("lantai_id", $param);
+		return $this->db->get("unit")->result_array();
+	}
 	#=============== SELECT FUNCTION (FINISH) ===============#
 
 	#=============== UPDATE FUNCTION (START) ===============#

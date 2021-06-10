@@ -24,8 +24,8 @@ class Dashboard_Model extends CI_Model{
 	public function selectAllDataPeserta($param=""){
 		$this->db->select("A.*, B.nama_unit, C.no_lantai, D.nama_tower");
 		$this->db->join("unit B","A.unit_id = B.unit_id","INNER");
-		$this->db->join("lantai C","A.lantai_id = C.lantai_id","INNER");
-		$this->db->join("tower D","A.tower_id = D.tower_id","INNER");
+		$this->db->join("lantai C","B.lantai_id = C.lantai_id","INNER");
+		$this->db->join("tower D","C.tower_id = D.tower_id","INNER");
 		$this->db->where("A.status", $param);
 		$arrData = $this->db->get("peserta A")->result_array();
 		return $arrData;
@@ -40,8 +40,8 @@ class Dashboard_Model extends CI_Model{
 	public function selectDetailDataPeserta($param){
 		$this->db->select("A.*, B.nama_unit, C.no_lantai, D.nama_tower");
 		$this->db->join("unit B","A.unit_id = B.unit_id","INNER");
-		$this->db->join("lantai C","A.lantai_id = C.lantai_id","INNER");
-		$this->db->join("tower D","A.tower_id = D.tower_id","INNER");
+		$this->db->join("lantai C","B.lantai_id = C.lantai_id","INNER");
+		$this->db->join("tower D","C.tower_id = D.tower_id","INNER");
 		$this->db->where("A.status", $param);
 		$arrData = $this->db->get("peserta A")->result_array();
 		if(count($arrData) > 0){
@@ -73,10 +73,10 @@ class Dashboard_Model extends CI_Model{
 	}
 
 	public function selectDetailDataPesertaByID($param=""){
-		$this->db->select("A.*, B.nama_unit, C.no_lantai, D.nama_tower");
+		$this->db->select("A.*, B.nama_unit, C.no_lantai, C.lantai_id, D.tower_id, D.nama_tower");
 		$this->db->join("unit B","A.unit_id = B.unit_id","INNER");
-		$this->db->join("lantai C","A.lantai_id = C.lantai_id","INNER");
-		$this->db->join("tower D","A.tower_id = D.tower_id","INNER");
+		$this->db->join("lantai C","B.lantai_id = C.lantai_id","INNER");
+		$this->db->join("tower D","C.tower_id = D.tower_id","INNER");
 		$this->db->where("MD5(A.peserta_id)", $param);
 		$arrData = $this->db->get("peserta A")->result_array();
 		return $arrData;
