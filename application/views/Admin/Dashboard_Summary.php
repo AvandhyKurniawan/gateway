@@ -3,7 +3,7 @@
 	<meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
-        <title>Beranda | Gateway Apartment</title>
+        <title>Beranda | Apartment Gateway</title>
         <link rel="shortcut icon" href="<?= base_url("support/template/assets/images/Logo.png"); ?>">
 
 		<!-- DataTables -->
@@ -110,7 +110,7 @@
                 </div>
                 <!-- content -->
                 <footer class="footer">
-                    © 2021 - 2022 Gateway Apartment.
+                    © 2021 - 2022 Apartment Gateway.
                 </footer>
 
             </div>

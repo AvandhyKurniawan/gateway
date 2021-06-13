@@ -3,7 +3,7 @@
 	<meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
-        <title>Beranda | Gateway Apartment</title>
+        <title>Login | Apartment Gateway</title>
         <link rel="shortcut icon" href="<?= base_url("support/template/assets/images/Logo.png"); ?>">
 
         <link href="<?= base_url("support/template/assets/css/bootstrap.min.css"); ?>" rel="stylesheet" type="text/css">
