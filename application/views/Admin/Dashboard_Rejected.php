@@ -23,92 +23,95 @@
 
 	<body>
 		<!-- Begin page -->
-		<?php $this->load->view("Admin/Include/Topbar_View.php"); ?>
-		<?php $this->load->view("Admin/Include/Sidebar_View.php"); ?>
+		<div id="wrapper">
+			<?php $this->load->view("Admin/Include/Topbar_View.php"); ?>
+			<?php $this->load->view("Admin/Include/Sidebar_View.php"); ?>
 
-		<!-- ============================================================== -->
-		<!-- Start right Content here -->
-		<!-- ============================================================== -->
-		<div class="content-page">
-			<!-- Start content -->
-			<div class="content">
-				<div class="container-fluid">
-					<div class="page-title-box">
-						<div class="row align-items-center">
-							<div class="col-sm-6">
-								<h4 class="page-title">Daftar Peserta Yang sudah di Reject / Ditolak</h4>
-							</div>
-							<div class="col-sm-6">
-								<ol class="breadcrumb float-right">
-									<li class="breadcrumb-item"><a href="javascript:void(0);">Stexo</a></li>
-									<li class="breadcrumb-item"><a href="javascript:void(0);">Tables</a></li>
-									<li class="breadcrumb-item active">Data Table</li>
-								</ol>
-							</div>
+			<!-- ============================================================== -->
+			<!-- Start right Content here -->
+			<!-- ============================================================== -->
+			<div class="content-page">
+				<!-- Start content -->
+				<div class="content">
+					<div class="container-fluid">
+						<div class="page-title-box">
+							<div class="row align-items-center">
+								<div class="col-sm-6">
+									<h4 class="page-title">Daftar Peserta Yang sudah di Reject / Ditolak</h4>
+								</div>
+								<div class="col-sm-6">
+									<ol class="breadcrumb float-right">
+										<li class="breadcrumb-item"><a href="<?= base_url("Admin/Dashboard"); ?>">Dashboard</a></li>
+										<li class="breadcrumb-item active">Data Rejected</li>
+									</ol>
+								</div>
+							</div> <!-- end row -->
+						</div>
+						<!-- end page-title -->
+
+						<div class="row">
+							<div class="col-12">
+								<div class="card m-b-30">
+									<div class="card-body">
+										<div class="form-group float-right">
+											<a href="<?= base_url('Admin/Dashboard/export_data/rejected'); ?>" class="btn btn-md btn-success">Export Data</a>
+										</div>
+										<div class="table-responsive">
+											<table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+												<thead>
+													<tr>
+														<th>Nama</th>
+														<th>Unit</th>
+														<th>Status</th>
+														<th>Alamat</th>
+														<th>Telepon</th>
+														<th>Email</th>
+														<th>Lampiran</th>
+														<th>Action</th>
+													</tr>
+												</thead>
+
+												<tbody>
+													<?php foreach($REJECTED_DATA as $arrData): ?>
+														<tr>
+															<td><?= $arrData["nama_lengkap"]; ?></td>
+															<td><?= (strlen($arrData["nama_tower"]) <= 1 ? "0".$arrData["nama_tower"] : $arrData["nama_tower"])."-".$arrData["no_lantai"]."-".$arrData["nama_unit"]; ?></td>
+															<td><?= $arrData["status_peserta"]; ?></td>
+															<td><?= $arrData["domisili"]; ?></td>
+															<td><?= $arrData["tlp"]; ?></td>
+															<td><?= $arrData["email"]; ?></td>
+															<td>
+																<a class="btn btn-md btn-primary" href="<?= base_url("support/assets/upload/users/$arrData[foto_ktp]"); ?>">Foto KTP</a>
+																<a class="btn btn-md btn-primary" href="<?= base_url("support/assets/upload/users/$arrData[foto_diri]"); ?>">Foto Diri</a>
+																<?php if(!empty($arrData["foto_kuasa"])): ?>
+																	<a class="btn btn-md btn-primary" href="<?= base_url("support/assets/upload/users/$arrData[foto_kuasa]"); ?>">Surat Kuasa</a>
+																<?php endif; ?>
+															</td>
+															<td>
+																<button class="btn btn-md btn-danger" onclick='action("<?= md5($arrData["peserta_id"]); ?>")'>Rejected</button>
+															</td>
+														</tr>
+													<?php endforeach; ?>
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+							</div> <!-- end col -->
 						</div> <!-- end row -->
 					</div>
-					<!-- end page-title -->
-
-					<div class="row">
-						<div class="col-12">
-							<div class="card m-b-30">
-								<div class="card-body">
-	
-									<h4 class="mt-0 header-title">Daftar Peserta Yang sudah di Reject / Ditolak</h4>
-	
-									<table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
-										<thead>
-											<tr>
-												<th>Nama</th>
-												<th>Unit</th>
-												<th>Status</th>
-												<th>Alamat</th>
-												<th>Telepon</th>
-												<th>Email</th>
-												<th>Lampiran</th>
-												<th>Action</th>
-											</tr>
-										</thead>
-
-										<tbody>
-											<?php foreach($REJECTED_DATA as $arrData): ?>
-												<tr>
-													<td><?= $arrData["nama_lengkap"]; ?></td>
-													<td><?= (strlen($arrData["nama_tower"]) <= 1 ? "0".$arrData["nama_tower"] : $arrData["nama_tower"])."-".$arrData["no_lantai"]."-".$arrData["nama_unit"]; ?></td>
-													<td><?= $arrData["status_peserta"]; ?></td>
-													<td><?= $arrData["domisili"]; ?></td>
-													<td><?= $arrData["tlp"]; ?></td>
-													<td><?= $arrData["email"]; ?></td>
-													<td>
-														<a class="btn btn-md btn-primary" href="<?= base_url("support/assets/upload/users/$arrData[foto_ktp]"); ?>">Foto KTP</a>
-														<a class="btn btn-md btn-primary" href="<?= base_url("support/assets/upload/users/$arrData[foto_diri]"); ?>">Foto Diri</a>
-														<?php if(!empty($arrData["foto_kuasa"])): ?>
-															<a class="btn btn-md btn-primary" href="<?= base_url("support/assets/upload/users/$arrData[foto_kuasa]"); ?>">Surat Kuasa</a>
-														<?php endif; ?>
-													</td>
-													<td>
-														<button class="btn btn-md btn-danger" onclick='action("<?= md5($arrData["peserta_id"]); ?>")'>Rejected</button>
-													</td>
-												</tr>
-											<?php endforeach; ?>
-										</tbody>
-									</table>
-								</div>
-							</div>
-						</div> <!-- end col -->
-					</div> <!-- end row -->
+					<!-- container-fluid -->
 				</div>
-				<!-- container-fluid -->
-			</div>
-			<!-- content -->
-			<footer class="footer">
-				© 2021 - 2022 Gateway Apartment.
-			</footer>
+				<!-- content -->
+				<footer class="footer">
+					© 2021 - 2022 Gateway Apartment.
+				</footer>
 
+			</div>
+			<!-- ============================================================== -->
+			<!-- End Right content here -->
+			<!-- ============================================================== -->
 		</div>
-		<!-- ============================================================== -->
-		<!-- End Right content here -->
-		<!-- ============================================================== -->
 		<div id="action" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 			<div class="modal-dialog">
 				<div class="modal-content">

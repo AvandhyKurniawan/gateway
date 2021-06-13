@@ -16,43 +16,48 @@
 		<!-- Begin page -->
         <div class="accountbg"></div>
 		<div class="container-fluid">
-			<div class="row justify-content-end">
-				<div class="col-md-2 col-sm-12">
-				<br>
-					<button class="btn btn-info btn-block btn-lg waves-effect waves-light" data-toggle="modal" data-target="#myModal">Informasi</button>
+			<div class="col-md-2 col-sm-12 col-xs-12">
+				<img src="<?= base_url("support/template/assets/images/Logo.png"); ?>" class="thumb-lg img-thumbnail mx-auto d-block img-fluid" alt="thumbnail">
+			</div>
+			<div class="wrapper-page">
+				<div class="card card-pages shadow-none">
+					<div class="card-body">
+						<!-- <div class="user-thumb text-center m-b-30">
+							<img src="<?= base_url("support/template/assets/images/Logo.png"); ?>" class="thumb-lg img-thumbnail mx-auto d-block img-fluid" alt="thumbnail">
+						</div> -->
+						<div class="row">
+							<div class="col-12">
+								<center>
+									<label class="text-center">Apartement Gateway Pesanggahan</label>
+								</center>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-12">
+								<h4 class="text-center">Rapat Umum Anggota Tahunan Tahun <?= date('Y'); ?></h4>
+							</div>
+						</div>
+
+						<div class="form-group text-center m-t-20">
+							<div class="col-12">
+								<a class="btn btn-primary btn-block btn-lg waves-effect waves-light" href="<?= base_url("Member/register"); ?>">Pendaftaran</a>
+							</div>
+							<br>
+							<div class="col-12">
+								<a class="btn btn-primary btn-block btn-lg waves-effect waves-light" href="<?= base_url("Member/login"); ?>">Masuk / Login</a>
+							</div>
+							<br>
+							<div class="col-12">
+								<button class="btn btn-info btn-block btn-lg waves-effect waves-light" data-toggle="modal" data-target="#myModal">Informasi</button>
+							</div>
+						</div>
+						
+					</div>
 				</div>
 			</div>
+			<!-- END wrapper -->
 		</div>
-        <div class="wrapper-page">
-			<div class="card card-pages shadow-none">
-				<div class="card-body">
-					<div class="user-thumb text-center m-b-30">
-						<img src="<?= base_url("support/template/assets/images/Logo.png"); ?>" class="thumb-lg img-thumbnail mx-auto d-block img-fluid" alt="thumbnail">
-					</div>
-					<div class="row">
-						<div class="col-12">
-							<label class="text-center">Selamat datang dirapat umum anggota tahunan apartemen gateway pesangrahan (RUAT)</label>
-						</div>
-					</div>
-
-					<div class="form-group text-center m-t-20">
-						<div class="col-12">
-							<a class="btn btn-primary btn-block btn-lg waves-effect waves-light" href="<?= base_url("Member/register"); ?>">Pendaftaran</a>
-						</div>
-						<br>
-						<div class="col-12">
-							<a class="btn btn-primary btn-block btn-lg waves-effect waves-light" href="<?= base_url("Member/login"); ?>">Masuk</a>
-						</div>
-					</div>
-					
-				</div>
-			</div>
-		</div>
-        <!-- END wrapper -->
-
-
-
-
 
 		<div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 			<div class="modal-dialog">

@@ -27,9 +27,9 @@
             <div class="topbar">
 				<!-- LOGO -->
 				<div class="topbar-left">
-    				<a href="index.html" class="logo">
+    				<a href="<?= base_url("Member/Dashboard_member"); ?>" class="logo">
         				<span class="logo-light">
-            				<i class="mdi mdi-camera-control"></i> Stexo
+            				<i class="mdi mdi-camera-control"></i> RUAT
         				</span>
         				<span class="logo-sm">
             				<i class="mdi mdi-camera-control"></i>
@@ -106,13 +106,12 @@
                         <div class="page-title-box">
                             <div class="row align-items-center">
                                 <div class="col-sm-6">
-                                    <h4 class="page-title">Data Table</h4>
+                                    <h4 class="page-title">SELAMAT DATANG</h4>
                                 </div>
                                 <div class="col-sm-6">
                                     <ol class="breadcrumb float-right">
-                                        <li class="breadcrumb-item"><a href="javascript:void(0);">Stexo</a></li>
-                                        <li class="breadcrumb-item"><a href="javascript:void(0);">Tables</a></li>
-                                        <li class="breadcrumb-item active">Data Table</li>
+                                        <li class="breadcrumb-item"><a href="javascript:void(0);">Dashboard</a></li>
+                                        <li class="breadcrumb-item active">Peserta</li>
                                     </ol>
                                 </div>
                             </div> <!-- end row -->
@@ -123,9 +122,7 @@
                             <div class="col-12">
                                 <div class="card m-b-30">
                                     <div class="card-body">
-        
-                                        <h4 class="mt-0 header-title">Selamat Datang </h4>
-                                   
+
                             <div class="col-xl">
                              
                                     <div class="card-body">
@@ -133,10 +130,17 @@
                                 
         
                                         <div class="button-items">
-                                            <button type="button" class="btn btn-primary waves-effect waves-light"  data-toggle="modal" data-target="#agendarapat">Agenda Rapat</button>
-                                            <button type="button" class="btn btn-primary waves-effect waves-light"  data-toggle="modal" data-target="#tatatertibruat">Tata Tertip Ruat</button>
-                                            <button type="button" class="btn btn-primary waves-effect waves-light"  data-toggle="modal" data-target="#contoh3">Contoh 3</button>
-                                            <button type="button" class="btn btn-primary waves-effect waves-light"  data-toggle="modal" data-target="#contoh4">Contoh 4</button>
+                                            <button type="button" class="btn btn-primary waves-effect waves-light"  data-toggle="modal" data-target="#agendarapat">Jadwal</button>
+                                            <button type="button" class="btn btn-primary waves-effect waves-light"  data-toggle="modal" data-target="#tatatertibruat">Agenda</button>
+                                            <button type="button" class="btn btn-primary waves-effect waves-light"  data-toggle="modal" data-target="#contoh3">Materi Ruat</button>
+                                            <!-- <button type="button" class="btn btn-primary waves-effect waves-light"  data-toggle="modal" data-target="#contoh4">Contoh 4</button> -->
+                                        </div>
+										<br>
+										<div class="button-items">
+                                            <button type="button" class="btn btn-success waves-effect waves-light">Download Jadwal</button>
+                                            <button type="button" class="btn btn-success waves-effect waves-light">Download Agenda</button>
+                                            <button type="button" class="btn btn-success waves-effect waves-light">DownloadMateri Ruat</button>
+                                            <!-- <button type="button" class="btn btn-primary waves-effect waves-light"  data-toggle="modal" data-target="#contoh4">Contoh 4</button> -->
 
                                         </div>
 
@@ -144,7 +148,6 @@
                                   <br>
             
                                             <h4 class="mt-0 header-title">Dibawah adalah tombol masuk rapat online</h4>
-                                            <p class="sub-title">Add <code class="highlighter-rouge">data-toggle="button"</code>
                                                Harap Masukan Nama User sesuai dengan Nama Tower, Lantai, dan Unit Contohnya <b>0A-02-001</b>
                                             </p>
             

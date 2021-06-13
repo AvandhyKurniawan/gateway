@@ -65,14 +65,14 @@
 											<select name="cmbStatus" id="cmbStatus" class="form-control" onchange="changeStatus();" required>
 												<option value="">STATUS</option>
 												<option value="Pemilik">PEMILIK</option>
-												<option value="Penyewa">PENYEWA</option>
+												<option value="Penghuni">PENGHUNI</option>
 												<option value="Pemegang Kuasa">PEMEGANG KUASA</option>
 											</select>
 										</div>
 									</div>
 									<div class="col-12">
 										<div class="form-group">
-											<label>DOMISILI</label>
+											<label>ALAMAT DOMISILI</label>
 											<input class="form-control" type="text" id="txtDomisili" name="txtDomisili" placeholder="Domisili" required>
 										</div>
 									</div>
@@ -85,13 +85,13 @@
 									<div class="col-12">
 										<div class="form-group">
 											<label>NO HP</label>
-											<input class="form-control" type="text" id="txtNoHp" name="txtNoHp" placeholder="Nomor Handphone" required>
+											<input class="form-control" type="number" id="txtNoHp" name="txtNoHp" placeholder="Nomor Handphone" required>
 										</div>
 									</div>
 									<div class="col-12">
 										<div class="form-group">
 											<label>EMAIL</label>
-											<input class="form-control" type="text" id="txtEmail" name="txtEmail" placeholder="Email" required>
+											<input class="form-control" type="email" id="txtEmail" name="txtEmail" placeholder="Email" required>
 										</div>
 									</div>
 									<div class="col-12">

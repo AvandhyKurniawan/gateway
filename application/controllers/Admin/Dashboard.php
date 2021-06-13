@@ -51,6 +51,21 @@ class Dashboard extends CI_Controller {
 		$this->load->view('Admin/Dashboard_User', $arrData);
 	}
 
+	public function export_data($param){
+		$arrData = array(
+			"STATUS" => strtoupper($param),
+			"DATA" => $this->Dashboard_Model->selectAllDataPeserta($param)
+		);
+		$this->load->view('Admin/Include/Export_Excel', $arrData);
+	}
+
+	public function export_user_data(){
+		$arrData = array(
+			"DATA" => $this->Dashboard_Model->selectAllDataUser()
+		);
+		$this->load->view('Admin/Include/Export_User_Excel', $arrData);
+	}
+
 	public function doLogout(){
 		if(!empty($this->session->userdata("admin_id"))){
 			$this->session->sess_destroy();
@@ -103,10 +118,6 @@ class Dashboard extends CI_Controller {
 		$this->output->set_output(json_encode($arrResponse));
 		$this->output->_display();
 		exit;
-	}
-
-	public function testEmail(){
-		$this->load->view("Admin/Include/Mail/Accepted_Mail");
 	}
 
 	private function _accessGenerator($param){

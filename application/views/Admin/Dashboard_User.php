@@ -22,83 +22,84 @@
 
 	<body>
 		<!-- Begin page -->
-		<?php $this->load->view("Admin/Include/Topbar_View.php"); ?>
-		<?php $this->load->view("Admin/Include/Sidebar_View.php"); ?>
+		<div id="wrapper">
+			<?php $this->load->view("Admin/Include/Topbar_View.php"); ?>
+			<?php $this->load->view("Admin/Include/Sidebar_View.php"); ?>
 
-		<!-- ============================================================== -->
-		<!-- Start right Content here -->
-		<!-- ============================================================== -->
-		<div class="content-page">
-			<!-- Start content -->
-			<div class="content">
-				<div class="container-fluid">
-					<div class="page-title-box">
-						<div class="row align-items-center">
-							<div class="col-sm-6">
-								<h4 class="page-title">Daftar Akun</h4>
-							</div>
-							<div class="col-sm-6">
-								<ol class="breadcrumb float-right">
-									<li class="breadcrumb-item"><a href="javascript:void(0);">Stexo</a></li>
-									<li class="breadcrumb-item"><a href="javascript:void(0);">Tables</a></li>
-									<li class="breadcrumb-item active">Data Table</li>
-								</ol>
-							</div>
-						</div> <!-- end row -->
-					</div>
-					<!-- end page-title -->
-
-					<div class="row">
-						<div class="col-12">
-							<div class="card m-b-30">
-								<div class="card-body">
-	
-									
-	
-									<table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
-										<thead>
-											<tr>
-												<th>No</th>
-												<th>Nama</th>
-												<th>Username</th>
-												<th>Password</th>
-											</tr>
-										</thead>
-	
-	
-										<tbody>
-											<?php foreach($USERS_DATA as $arrData): ?>
-												<tr>
-													<td><?= $arrData["user_id"]; ?></td>
-													<td><?= $arrData["nama_lengkap"]; ?></td>
-													<td><?= $arrData["username"]; ?></td>
-													<td><?= $this->encryption->decrypt($arrData["password"]); ?></td>
-												</tr>
-											<?php endforeach; ?>
-										</tbody>
-									</table>
-	
+			<!-- ============================================================== -->
+			<!-- Start right Content here -->
+			<!-- ============================================================== -->
+			<div class="content-page">
+				<!-- Start content -->
+				<div class="content">
+					<div class="container-fluid">
+						<div class="page-title-box">
+							<div class="row align-items-center">
+								<div class="col-sm-6">
+									<h4 class="page-title">Daftar Akun</h4>
 								</div>
-							</div>
-						</div> <!-- end col -->
-					</div> <!-- end row -->
+								<div class="col-sm-6">
+									<ol class="breadcrumb float-right">
+									<li class="breadcrumb-item"><a href="<?= base_url("Admin/Dashboard"); ?>">Dashboard</a></li>
+										<li class="breadcrumb-item active">Data User</li>
+									</ol>
+								</div>
+							</div> <!-- end row -->
+						</div>
+						<!-- end page-title -->
+
+						<div class="row">
+							<div class="col-12">
+								<div class="card m-b-30">
+									<div class="card-body">
+										<div class="form-group float-right">
+											<a href="<?= base_url('Admin/Dashboard/export_user_data'); ?>" class="btn btn-md btn-success">Export Data</a>
+										</div>
+										<div class="table-responsive">
+											<table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+												<thead>
+													<tr>
+														<th>No</th>
+														<th>Nama</th>
+														<th>Username</th>
+														<th>Password</th>
+													</tr>
+												</thead>
+			
+			
+												<tbody>
+													<?php foreach($USERS_DATA as $arrData): ?>
+														<tr>
+															<td><?= $arrData["user_id"]; ?></td>
+															<td><?= $arrData["nama_lengkap"]; ?></td>
+															<td><?= $arrData["username"]; ?></td>
+															<td><?= $this->encryption->decrypt($arrData["password"]); ?></td>
+														</tr>
+													<?php endforeach; ?>
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+							</div> <!-- end col -->
+						</div> <!-- end row -->
 
 
 
 
+					</div>
+					<!-- container-fluid -->
 				</div>
-				<!-- container-fluid -->
-			</div>
-			<!-- content -->
-			<footer class="footer">
-				© 2021 - 2022 Gateway Apartment.
-			</footer>
+				<!-- content -->
+				<footer class="footer">
+					© 2021 - 2022 Gateway Apartment.
+				</footer>
 
-		</div>
-		<!-- ============================================================== -->
-		<!-- End Right content here -->
-		<!-- ============================================================== -->
-        <!-- END wrapper -->
+			</div>
+			<!-- ============================================================== -->
+			<!-- End Right content here -->
+			<!-- ============================================================== -->
+		</div><!-- END wrapper -->
 
         <!-- jQuery  -->
         <script src="<?= base_url("support/template/assets/js/jquery.min.js"); ?>"></script>

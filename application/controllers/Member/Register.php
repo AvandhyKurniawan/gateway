@@ -60,7 +60,7 @@ class Register extends CI_Controller {
 			array('field' => 'NoHp', 'label' => 'No Hp', 'rules' => 'required'),
 			array('field' => 'Email', 'label' => 'Email', 'rules' => 'required|valid_email')
 		);
-		if($Status == "Pemilik" || $Status == "Penyewa"){
+		if($Status == "Pemilik" || $Status == "Penghuni"){
 			$arrValidation2 = array(
 				array('field' => 'KtpPemilik', 'label' => 'Ktp Pemilik', 'rules' => 'required'),
 				array('field' => 'FotoDiriPemilik', 'label' => 'Foto Diri Pemilik', 'rules' => 'required')
@@ -98,7 +98,7 @@ class Register extends CI_Controller {
 
 			$arrResponse = $this->Register_Model->insertRegisterMember($arrData);
 
-			if($Status == "Pemilik"|| $Status == "Penyewa"){
+			if($Status == "Pemilik"|| $Status == "Penghuni"){
 				$this->_uploadFile(array("field" => "fileKtpPemilik", "dir" => md5($arrData["nama_lengkap"].$timestamp)));
 				$this->_uploadFile(array("field" => "fileFotoDiriPemilik", "dir" => md5($arrData["nama_lengkap"].$timestamp)));
 			}else if($Status == "Pemegang Kuasa"){
