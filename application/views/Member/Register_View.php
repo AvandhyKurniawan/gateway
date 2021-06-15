@@ -63,7 +63,7 @@
 										<div class="form-group">
 											<label>STATUS</label>
 											<select name="cmbStatus" id="cmbStatus" class="form-control" onchange="changeStatus();" required>
-												<option value="">STATUS</option>
+												<option value=""> PILIH STATUS</option>
 												<option value="Pemilik">PEMILIK</option>
 												<option value="Penghuni">PENGHUNI</option>
 												<option value="Pemegang Kuasa">PEMEGANG KUASA</option>
@@ -106,6 +106,17 @@
 									<button class="btn btn-primary btn-block btn-lg waves-effect waves-light" id="btnDaftar" onclick="saveData();">Daftar</button>
 								</div>
 							</div>
+							
+							
+								<div class="form-group text-center m-t-20">
+							<div class="col-12">
+								<a type="button" href="<?= base_url('/') ?>" class="btn btn-success" >Kembali</a>
+							</div>
+								</div>
+							
+							
+							
+							
 						</div>
 					</div>
 				</div>
@@ -131,7 +142,7 @@
 
 			function changeStatus(){
 				var status = $("#cmbStatus").val();
-				if(status == "Pemilik" || status == "Penyewa"){
+				if(status == "Pemilik" || status == "Penghuni"){
 					$("#lampiranDokumen").html(
 						'<div class="row">'+
 							'<div class="col-12">'+
@@ -194,7 +205,7 @@
 					FORM_DATA.append("NoHp",NoHp);
 					FORM_DATA.append("Email",Email);
 					
-					if(Status == "Pemilik" || Status == "Penyewa"){
+					if(Status == "Pemilik" || Status == "Penghuni"){
 						var KtpPemilik 				= $("#fileKtpPemilik").val();
 						var FotoDiriPemilik 		= $("#fileFotoDiriPemilik").val();
 						var fileKtpPemilik			= $("#fileKtpPemilik")[0].files;
@@ -256,8 +267,8 @@
 								theme: 'material',
 								type: 'red',
 								icon: 'fas fa-remove',
-								title: response.responseJSON.status,
-								content: response.responseJSON.message,
+								title: "Forbidden",
+								content: "Pendaftaran anda gagal,silahkan daftar kembali",
 								buttons:{
 									ok:{
 										action:function(){

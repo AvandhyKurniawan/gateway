@@ -10,7 +10,11 @@ class Register_Model extends CI_Model{
 		if($this->db->trans_status() !== FALSE){
 			return array("code" 	=> 201,
 						 "status" 	=> "Created",
-						 "message" 	=> "Registrasi berhasil",
+						 "message" 	=> "Pendaftaran Berhasil!
+						 <br>
+						 Admin RUAT akan memverifikasi data anda.
+						 <br>
+						 Hasil verifikasi data akan dikirimkan lewat email atau WA.",
 						 "data"		=> array());
 		}else{
 			return array("code" 	=> 404,

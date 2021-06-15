@@ -9,30 +9,40 @@
 				<h2 style="margin-left: 20px;">Akses Login Rapat Umum Anggota Tahunan</h2>
 			</div>
 			<div>
-				<P>Dear <?= $nama_lengkap; ?>,</P>
-				<p>Berikut adalah akses login anda untuk Rapat Umum Anggota Tahunan (RUAT)</p>
+				<P>Kepada Yth. Bapak / Ibu <?= $nama_lengkap; ?>,</P>
+				
+				<p>Selamat, pendaftaran anda sebagai peserta RUAT Apartement Gateway Pesanggarahan, <b>Telah disetujui</b>.</p>
+				
+				<p>Dibawah ini adalah akses login anda untuk masuk kedalam RUAT Online.</p>
+				
 				<table border="0">
 					<tr>
 						<td>Username</td>
-						<td><?= $username; ?></td>
+						<td> : <?= $username; ?></td>
 					</tr>
 					<tr>
 						<td>Password</td>
-						<td><?= $password; ?></td>
+						<td> : <?= $password; ?></td>
 					</tr>
 				</table>
+				<br>
+				<p>CATATAN : Nama "<b><?= $username; ?></b>", Wajib digunakan sebagai nama profil/akun zoom anda</p>
 				<p style="margin-bottom: 30px;">
-					Silahkan klik tombol dibawah ini untuk login
+					Silahkan klik tombol dibawah ini untuk Masuk/Login :
 				</p>
 				<center>
-					<a href="<?= base_url("Member/login"); ?>" style="padding: 20px; background-color:dodgerblue; text-decoration:none; color:#FFF;">Login Member</a>
+					<a href="<?= base_url("Member/login"); ?>" style="padding: 20px; background-color:dodgerblue; text-decoration:none; color:#FFF;">Masuk / Login</a>
 				</center>
 				<p style="margin-top: 30px;">
-					atau silahkan copy-paste link berikut
+					atau silahkan klik link dibawah ini, jika tidak berhasil lakukan copy-paste link berikut :
 				</p>
 				<center>
 					<p><?= base_url("Member/login"); ?></p>
+					
 				</center>
+				<br>
+					<p>Terima kasih,</p>
+					<p>Admin RUAT</p>
 			</div>
 		</div>
 	</body>

@@ -27,7 +27,7 @@ class Register extends CI_Controller {
 		$NoHp 					= $this->input->post("NoHp");
 		$Email 					= $this->input->post("Email");
 
-		if($Status == "Pemilik"|| $Status == "Penyewa"){
+		if($Status == "Pemilik"|| $Status == "Penghuni"){
 			$Ktp 			= $_FILES["fileKtpPemilik"]["name"];
 			$FotoDiri 		= $_FILES["fileFotoDiriPemilik"]["name"];
 			$SuratKuasa		= "";
@@ -156,7 +156,7 @@ class Register extends CI_Controller {
 			}
 		}
 		$config['upload_path']          = $structure;
-		$config['allowed_types']        = 'gif|jpg|png';
+		$config['allowed_types']        = 'gif|jpg|png|pdf';
 
 		$this->load->library('upload', $config);
 

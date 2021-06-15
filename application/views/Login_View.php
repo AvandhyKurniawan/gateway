@@ -44,11 +44,23 @@
 
 						<div class="form-group text-center m-t-20">
 							<div class="col-12">
-								<button class="btn btn-primary btn-block btn-lg waves-effect waves-light" type="submit">Log In</button>
+								<button class="btn btn-primary btn-block btn-lg waves-effect waves-light" type="submit">Log In / Masuk</button>
 							</div>
 							
 						</div>
+						
+							
+						</div>
 					</form>
+					
+						<div class="form-group text-center m-t-20">
+							<div class="col-12">
+								<a type="button" href="<?= base_url('/') ?>" class="btn btn-success" >Kembali</a>
+							</div>
+								</div>
+					
+					
+					
 					<?php
 						if(!empty($this->session->flashdata("error_login"))):
 					?>

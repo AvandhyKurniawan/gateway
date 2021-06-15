@@ -108,6 +108,31 @@ class Dashboard extends CI_Controller {
 			);
 			$this->_sendEmail($arrDataEmail);
 		}
+
+		if($status == "rejected"){
+			$arrData = $this->Dashboard_Model->selectDetailDataPesertaByID($id);
+			$arrParam = array(
+				"nama_lengkap" => $arrData[0]["nama_lengkap"],
+				"tower_id" => $arrData[0]["tower_id"],
+				"lantai_id" => $arrData[0]["lantai_id"],
+				"unit_id" => $arrData[0]["unit_id"],
+			);
+			$arrParam2 = $this->_accessGenerator($arrParam);
+			$this->Dashboard_Model->insertUser(array_merge($arrParam2, array("peserta_id"=>$arrData[0]["peserta_id"])));
+			$arrDataViewEmail = array(
+				"nama_lengkap" => $arrData[0]["nama_lengkap"],
+				"username" => $arrParam2["username"],
+				"password" => $this->encryption->decrypt($arrParam2["password"])
+			);
+			$emailBody = $this->load->view("Admin/Include/Mail/Rejected_Mail", $arrDataViewEmail, TRUE);
+			$arrDataEmail = array(
+				"email" => $arrData[0]["email"],
+				"subject" => "Email Konfirmasi Pendaftaran RUAT Apartemen Gateway",
+				"body" => $emailBody
+			);
+			$this->_sendEmail($arrDataEmail);
+		}
+		
 		$arrData = array(
 			"peserta_id" => $id,
 			"status" => $status

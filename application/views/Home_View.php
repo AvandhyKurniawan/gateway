@@ -17,6 +17,7 @@
         <div class="accountbg"></div>
 		<div class="container-fluid">
 			<div class="col-md-2 col-sm-12 col-xs-12">
+			<br>
 				<img src="<?= base_url("support/template/assets/images/Logo.png"); ?>" class="thumb-lg img-thumbnail mx-auto d-block img-fluid" alt="thumbnail">
 			</div>
 			<div class="wrapper-page">
@@ -28,14 +29,16 @@
 						<div class="row">
 							<div class="col-12">
 								<center>
-									<label class="text-center">Apartement Gateway Pesanggahan</label>
+									<h5 class="text-center">Apartement Gateway Pesanggrahan</h5>
 								</center>
 							</div>
 						</div>
 
 						<div class="row">
-							<div class="col-12">
-								<h4 class="text-center">Rapat Umum Anggota Tahunan Tahun <?= date('Y'); ?></h4>
+							<div class="col-12 text-center">
+								<label class="text-center">Rapat Umum Anggota Tahunan</label>
+								<br>
+									<label class="text-center"> Tahun <?= date('Y'); ?></label>
 							</div>
 						</div>
 
@@ -48,20 +51,25 @@
 								<a class="btn btn-primary btn-block btn-lg waves-effect waves-light" href="<?= base_url("Member/login"); ?>">Masuk / Login</a>
 							</div>
 							<br>
-							<div class="col-12">
-								<button class="btn btn-info btn-block btn-lg waves-effect waves-light" data-toggle="modal" data-target="#myModal">Informasi</button>
-							</div>
 						</div>
-						
 					</div>
 				</div>
+
+					<div class="col-12">
+								<button class="btn btn-info btn-block btn-lg waves-effect waves-light" data-toggle="modal" data-target="#myModal">Informasi</button>
+							</div>
 			</div>
-			<!-- END wrapper -->
-		</div>
+		
+
+
+
+		
+
+		
 
 		<div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-			<div class="modal-dialog">
-				<div class="modal-content">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content" style="height: 90%;">
 					<div class="modal-header">
 						<h5 class="modal-title mt-0" id="myModalLabel">Informasi Rapat </h5>
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -69,20 +77,7 @@
 						</button>
 					</div>
 					<div class="modal-body">
-						<h5 class="font-16">Overflowing text to show scroll behavior</h5>
-						<p>Cras mattis consectetur purus sit amet fermentum.
-							Cras justo odio, dapibus ac facilisis in,
-							egestas eget quam. Morbi leo risus, porta ac
-							consectetur ac, vestibulum at eros.</p>
-						<p>Praesent commodo cursus magna, vel scelerisque
-							nisl consectetur et. Vivamus sagittis lacus vel
-							augue laoreet rutrum faucibus dolor auctor.</p>
-						<p>Aenean lacinia bibendum nulla sed consectetur.
-							Praesent commodo cursus magna, vel scelerisque
-							nisl consectetur et. Donec sed odio dui. Donec
-							ullamcorper nulla non metus auctor
-							fringilla.</p>
-						
+						<iframe src="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" style="width: 100%;" height="100%" frameborder="0"></iframe>
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">Tutup</button>

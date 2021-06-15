@@ -137,9 +137,9 @@
                                         </div>
 										<br>
 										<div class="button-items">
-                                            <button type="button" class="btn btn-success waves-effect waves-light">Download Jadwal</button>
-                                            <button type="button" class="btn btn-success waves-effect waves-light">Download Agenda</button>
-                                            <button type="button" class="btn btn-success waves-effect waves-light">DownloadMateri Ruat</button>
+                                            <button type="button" class="btn btn-info waves-effect waves-light">Download Jadwal</button>
+                                            <button type="button" class="btn btn-info waves-effect waves-light">Download Agenda</button>
+                                            <button type="button" class="btn btn-info waves-effect waves-light">DownloadMateri Ruat</button>
                                             <!-- <button type="button" class="btn btn-primary waves-effect waves-light"  data-toggle="modal" data-target="#contoh4">Contoh 4</button> -->
 
                                         </div>
@@ -148,11 +148,15 @@
                                   <br>
             
                                             <h4 class="mt-0 header-title">Dibawah adalah tombol masuk rapat online</h4>
-                                               Harap Masukan Nama User sesuai dengan Nama Tower, Lantai, dan Unit Contohnya <b>0A-02-001</b>
+                                               
+                                               
+                                            
                                             </p>
             
                                             <div >
-                                                <a type="vurron" href="https://www.gatewaypesanggrahan.com/" class="btn btn-primary waves-effect waves-light" data-toggle="button" aria-pressed="false">
+                                                <a type="vurron" 
+												href="https://us02web.zoom.us/j/9018164204?pwd=UkNUQ2FsTUpmT0t1OVlrcWlMRGxTdz09"
+												 class="btn btn-success waves-effect waves-light" data-toggle="button" aria-pressed="false">
                                                     Masuk Rapat
                                                 </a>
                                             </div>
